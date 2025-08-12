@@ -23,6 +23,9 @@ class Config:
     
     # Database paths
     CHROMA_PATH: str = "./chroma_db"  # ChromaDB storage location
+    
+    # AI tool calling settings
+    MAX_TOOL_ROUNDS: int = 2  # Maximum sequential tool calling rounds
 
 config = Config()
 

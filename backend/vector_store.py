@@ -246,8 +246,8 @@ class VectorStore:
             print(f"Error getting course link: {e}")
             return None
     
-    def get_lesson_link(self, course_title: str, lesson_number: int) -> Optional[str]:
-        """Get lesson link for a given course title and lesson number"""
+    def get_lesson_info(self, course_title: str, lesson_number: int) -> tuple[Optional[str], Optional[str]]:
+        """Get lesson title and link for a given course title and lesson number"""
         import json
         try:
             # Get course by ID (title is the ID)
@@ -260,8 +260,14 @@ class VectorStore:
                     # Find the lesson with matching number
                     for lesson in lessons:
                         if lesson.get('lesson_number') == lesson_number:
-                            return lesson.get('lesson_link')
-            return None
+                            return lesson.get('lesson_title'), lesson.get('lesson_link')
+            return None, None
         except Exception as e:
-            print(f"Error getting lesson link: {e}")
+            print(f"Error getting lesson info: {e}")
+            return None, None
+
+    def get_lesson_link(self, course_title: str, lesson_number: int) -> Optional[str]:
+        """Get lesson link for a given course title and lesson number"""
+        _, link = self.get_lesson_info(course_title, lesson_number)
+        return link
     
