@@ -80,22 +80,18 @@ header {
     display: block;
     padding: 1.5rem 2rem;
     background: var(--surface);
-    border-bottom: 1px solid var(--border-color);
     flex-shrink: 0;
 }
 
 /* Header Content Layout */
 .header-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.header-text {
-    flex: 1;
-}
 
 /* Theme Toggle Button */
 .theme-toggle {
@@ -139,21 +135,7 @@ header {
     transform: rotate(-90deg) scale(0.8);
 }
 
-header h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0;
-}
 
-.subtitle {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin-top: 0.5rem;
-}
 
 /* Main Content Area with Sidebar */
 .main-content {
@@ -844,9 +826,6 @@ details[open] .suggested-header::before {
         padding: 1rem;
     }
     
-    header h1 {
-        font-size: 1.5rem;
-    }
     
     .chat-messages {
         padding: 1rem;
